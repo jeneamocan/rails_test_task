@@ -1,0 +1,28 @@
+<tr>
+    <th>
+        <%= link_to login%>
+    </th>
+    <td>
+        <%= user = User.find(login.user_id)
+        customer_id = user.customer_id %>
+    </td>
+    <td>
+        <%= login.country %>
+    </td>
+    <td>
+        <%= login.provider %>
+    </td>
+    <td>
+        <%= login.status %>
+    </td>
+    <td>
+        <%= login_id = login.login_id
+          link_to "Reconnect", reconnect_login_path(login_id: login_id), method: :put, class: "btn btn-outline-success btn-sm"%>
+    </td>
+    <td>
+        <%= link_to "Refresh", refresh_login_path(login_id: login_id), method: :put, class: "btn btn-outline-primary btn-sm" %>
+    </td>
+    <td>
+        <%= link_to "Remove", remove_login_path(login_id: login_id), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+    </td>
+</tr>
