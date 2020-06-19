@@ -1,6 +1,5 @@
 require "rest-client"
 require "json"
-require 'active_support/all'
 
 BASE_URL  = "https://www.saltedge.com/api/v5"
 RETURN_TO = "https://salty-jenea.herokuapp.com/success"
@@ -28,7 +27,7 @@ class SaltedgeClient
     )
   end
 
-  def self.refresh_login(login_id)
+  def self.refresh(login_id)
     put(
       "/connections/#{login_id}/refresh",
       {
@@ -41,7 +40,7 @@ class SaltedgeClient
     )
   end
 
-  def self.reconnect_login(login_id)
+  def self.reconnect(login_id)
     post(
       "/connect_sessions/reconnect",
       {
@@ -59,20 +58,20 @@ class SaltedgeClient
     )
   end
 
-  def self.destroy_login(login_id)
+  def self.destroy(login_id)
     delete("/connections/#{login_id}")
   end
 
-  def self.fetch_logins(customer_id)
+  def self.fetch_connections(customer_id)
     get("/connections?customer_id=#{customer_id}")
   end
 
   def self.fetch_accounts(login)
-    get("/accounts?connection_id=#{login.id}&customer_id=#{login.customer_id}")
+    get("/accounts?connection_id=#{login.login_id}&customer_id=#{login.customer_id}")
   end
 
   def self.fetch_transactions(account)
-    get("/transactions?connection_id=#{account.connection_id}&account_id=#{account.id}")
+    get("/transactions?connection_id=#{account.login_id}&account_id=#{account.account_id}")
   end
 
   private

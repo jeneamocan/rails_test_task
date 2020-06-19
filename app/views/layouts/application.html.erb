@@ -2,15 +2,18 @@
 <html>
 
 <head>
-    <title>MyRailsApp</title>
+    <title>SaltyJenea</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
 </head>
 
 <body>
-    <%= render 'navbar' %>
+    <%= render "navbar" %>
+    <ol class="breadcrumb">
+        <%= render_breadcrumbs :tag => :li, :separator => " / " %>
+    </ol>
     <%= yield %>
     <% if notice %>
     <p class="alert alert-success">

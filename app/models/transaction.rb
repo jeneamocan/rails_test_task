@@ -1,3 +1,5 @@
 class Transaction < ApplicationRecord
-  belongs_to :account, foreign_key: "account_id"
+  belongs_to :account
+
+  validates :transaction_id, uniqueness: true
 end

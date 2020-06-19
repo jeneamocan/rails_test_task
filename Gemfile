@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
@@ -14,6 +14,7 @@ gem 'devise'
 gem 'rest-client'
 gem 'json'
 gem 'nokogiri', '1.10.9'
+gem "breadcrumbs_on_rails"
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.5.0'
 gem 'settingslogic'
@@ -31,15 +32,17 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop',       require: false
   gem 'rubocop-rails', require: false
-  gem 'rspec'
-  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'timecop'
+  gem 'mock_redis'
+  gem 'rack-test'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
