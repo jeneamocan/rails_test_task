@@ -1,0 +1,12 @@
+defaults: &defaults
+  base_url: https://www.saltedge.com/api/v5
+  application:
+    app_id: aSstfxUOaPdZWr-KgJKuDI5R_gkivU2HJlWSLerCY0E
+    secret: VZlmwLPl_EXPehOUh4XGFcUeht6WCobhgIdq9HJZsEA
+
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults

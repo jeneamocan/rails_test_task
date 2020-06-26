@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-class AddDeviseToClientUsers < ActiveRecord::Migration[6.0]
+class AddDeviseToCustomers < ActiveRecord::Migration[6.0]
   def self.up
-    create_table :client_users do |t|
+    create_table :customers, id: false do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.bigint :customer_id, primary_key: true
+      t.string :username
 
       ## Recoverable
       t.string   :reset_password_token
@@ -37,10 +39,10 @@ class AddDeviseToClientUsers < ActiveRecord::Migration[6.0]
       # t.timestamps null: false
     end
 
-    add_index :client_users, :email,                unique: true
-    add_index :client_users, :reset_password_token, unique: true
-    # add_index :client_users, :confirmation_token,   unique: true
-    # add_index :client_users, :unlock_token,         unique: true
+    add_index :customers, :email,                unique: true
+    add_index :customers, :reset_password_token, unique: true
+    # add_index :customers, :confirmation_token,   unique: true
+    # add_index :customers, :unlock_token,         unique: true
   end
 
   def self.down
