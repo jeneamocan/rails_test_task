@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'rest-client'
 gem 'json'
-gem 'nokogiri', '1.10.9'
+gem 'nokogiri', '1.11.4'
 gem "breadcrumbs_on_rails"
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.5.0'
